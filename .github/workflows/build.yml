@@ -40,6 +40,14 @@ jobs:
       - name: Set up Gradle cache
         uses: gradle/actions/setup-gradle@v4
 
+      # Keep the CI debug key stable across workflow runs. Without this, every
+      # runner creates a new key and APK updates fail with a signature mismatch.
+      - name: Cache Android debug signing key
+        uses: actions/cache@v4
+        with:
+          path: ~/.android/debug.keystore
+          key: thetics-android-debug-keystore-v1
+
       - name: Install dependencies
         run: flutter pub get
 
@@ -55,7 +63,7 @@ jobs:
       - name: Build release APK
         run: |
           flutter build apk --release \
-            --build-name=1.0.0 \
+            --build-name=1.0.1 \
             --build-number=${{ github.run_number }}
 
       - name: Build web bundle

@@ -1,7 +1,7 @@
 name: thetics
 description: "Thetics — natural physique training, intelligent nutrition, and honest progress tracking."
 publish_to: "none"
-version: 1.0.0+1
+version: 1.0.1+6
 
 environment:
   sdk: ">=3.5.0 <4.0.0"

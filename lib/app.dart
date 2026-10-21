@@ -29,7 +29,7 @@ class TheticsApp extends ConsumerWidget {
       darkTheme: AppTheme.dark(),
       themeMode: themeMode,
       home: asyncData.when(
-        loading: () => const _BootScreen(),
+        loading: () => const LaunchScreen(),
         error: (error, stackTrace) => _BootError(error: error),
         data: (data) {
           if (data.profile == null) return const OnboardingScreen();
@@ -40,28 +40,84 @@ class TheticsApp extends ConsumerWidget {
   }
 }
 
-class _BootScreen extends StatelessWidget {
-  const _BootScreen();
+class LaunchScreen extends StatelessWidget {
+  const LaunchScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     final p = context.palette;
     return Scaffold(
       backgroundColor: p.bg,
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const AppMark(size: 82),
-            const SizedBox(height: 20),
-            const Wordmark(fontSize: 34, subtitle: 'Train · Track · Transform'),
-            const SizedBox(height: 30),
-            SizedBox(
-              width: 22,
-              height: 22,
-              child: CircularProgressIndicator(strokeWidth: 2, color: p.accent),
-            ),
-          ],
+      body: DecoratedBox(
+        decoration: BoxDecoration(
+          gradient: RadialGradient(
+            center: const Alignment(0, -0.18),
+            radius: 1.05,
+            colors: [
+              Color.lerp(p.bg, p.accent, 0.065)!,
+              p.bg,
+            ],
+            stops: const [0, 0.72],
+          ),
+        ),
+        child: SafeArea(
+          child: Stack(
+            children: [
+              Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    DecoratedBox(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(96 * 0.24),
+                        boxShadow: [
+                          BoxShadow(
+                            color: p.accent.withValues(alpha: 0.16),
+                            blurRadius: 52,
+                            spreadRadius: 8,
+                          ),
+                        ],
+                      ),
+                      child: const AppMark(size: 96),
+                    ),
+                    const SizedBox(height: 28),
+                    const Wordmark(
+                      fontSize: 42,
+                      subtitle: 'TRAIN · TRACK · TRANSFORM',
+                    ),
+                    const SizedBox(height: 34),
+                    SizedBox(
+                      width: 132,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(2),
+                        child: LinearProgressIndicator(
+                          minHeight: 2,
+                          color: p.accent,
+                          backgroundColor: p.line,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Positioned(
+                left: 24,
+                right: 24,
+                bottom: 28,
+                child: Text(
+                  'LOCAL-FIRST  ·  NO ACCOUNT  ·  NO ADS',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: 'Manrope',
+                    fontWeight: FontWeight.w700,
+                    fontSize: 9.5,
+                    letterSpacing: 1.3,
+                    color: p.faint,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

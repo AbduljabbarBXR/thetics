@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/models/app_settings.dart';
 import '../../core/state/app_controller.dart';
 import '../../core/state/providers.dart';
+import '../../core/storage/local_store.dart';
 import '../../core/theme/app_palette.dart';
 import '../../core/utils/formatters.dart';
 import '../../core/widgets/surfaces.dart';
@@ -87,6 +88,7 @@ class ProfileScreen extends ConsumerWidget {
         child: CircularProgressIndicator(color: p.accent, strokeWidth: 2),
       );
     }
+    final storage = ref.watch(localStoreProvider);
     final settings = data.settings;
     final units = profile.units;
     final weeks = DateTime.now().difference(profile.createdAt).inDays ~/ 7;
@@ -136,6 +138,44 @@ class ProfileScreen extends ConsumerWidget {
                 ),
               ],
             ),
+            if (!storage.isPersistent) ...[
+              const SizedBox(height: 12),
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 13,
+                  vertical: 10,
+                ),
+                decoration: BoxDecoration(
+                  color: p.ember.withValues(alpha: 0.1),
+                  borderRadius: BorderRadius.circular(14),
+                  border: Border.all(
+                    color: p.ember.withValues(alpha: 0.35),
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.warning_amber_rounded,
+                      color: p.ember,
+                      size: 18,
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        'Storage is unavailable this session. Changes will not '
+                        'survive an app restart.',
+                        style: TextStyle(
+                          color: p.ember,
+                          fontSize: 10.5,
+                          height: 1.35,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
             const SizedBox(height: 18),
             SurfaceCard(
               padding: const EdgeInsets.all(16),
@@ -499,7 +539,7 @@ class ProfileScreen extends ConsumerWidget {
               child: Column(
                 children: [
                   Text(
-                    'THETICS 1.0.0',
+                    'THETICS 1.0.1',
                     style: TextStyle(
                       color: p.faint,
                       fontSize: 8.5,
