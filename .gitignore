@@ -1,0 +1,43 @@
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+.flutter-plugins
+*.iml
+.idea/
+.vscode/
+coverage/
+flutter_*.png
+
+# Android
+android/.gradle/
+android/captures/
+android/key.properties
+android/app/upload-keystore.jks
+android/local.properties
+android/app/.cxx/
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/ephemeral/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Runner/GeneratedPluginRegistrant.*
+**/xcuserdata/
+
+# macOS
+macos/Pods/
+macos/Flutter/ephemeral/
+
+# Secrets
+.env
+*.jks
+*.keystore
+key.properties
+
+# OS
+.DS_Store
+Thumbs.db
