@@ -156,26 +156,34 @@ class _NutritionScreenState extends ConsumerState<NutritionScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    remaining >= 0
-                                        ? '$remaining'
-                                        : '${remaining.abs()}',
-                                    style: text.headlineSmall?.copyWith(
-                                      fontSize: 25,
-                                      color: remaining < 0 ? p.ember : p.accent,
+                              FittedBox(
+                                fit: BoxFit.scaleDown,
+                                alignment: Alignment.centerLeft,
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      remaining >= 0
+                                          ? '$remaining'
+                                          : '${remaining.abs()}',
+                                      style: text.headlineSmall?.copyWith(
+                                        fontSize: 25,
+                                        color:
+                                            remaining < 0 ? p.ember : p.accent,
+                                      ),
                                     ),
-                                  ),
-                                  const SizedBox(width: 4),
-                                  Text(
-                                    remaining >= 0 ? 'kcal left' : 'kcal over',
-                                    style: TextStyle(
-                                      color: p.faint,
-                                      fontSize: 9.5,
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      remaining >= 0
+                                          ? 'kcal left'
+                                          : 'kcal over',
+                                      style: TextStyle(
+                                        color: p.faint,
+                                        fontSize: 9.5,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                               const SizedBox(height: 11),
                               MacroBar(

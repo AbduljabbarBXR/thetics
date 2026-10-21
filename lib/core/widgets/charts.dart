@@ -176,15 +176,19 @@ class MacroBar extends StatelessWidget {
               decoration: BoxDecoration(color: color, shape: BoxShape.circle),
             ),
             const SizedBox(width: 6),
-            Text(
-              label.toUpperCase(),
-              style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                    color: p.muted,
-                    letterSpacing: 1.1,
-                    fontSize: compact ? 8.5 : 9.5,
-                  ),
+            Expanded(
+              child: Text(
+                label.toUpperCase(),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                      color: p.muted,
+                      letterSpacing: 1.1,
+                      fontSize: compact ? 8.5 : 9.5,
+                    ),
+              ),
             ),
-            const Spacer(),
+            const SizedBox(width: 8),
             Text(
               '${value.round()} / ${target.round()}$unit',
               style: TextStyle(

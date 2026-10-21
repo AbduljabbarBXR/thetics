@@ -186,7 +186,10 @@ class _ProgressScreenState extends ConsumerState<ProgressScreen> {
                                 ],
                               ),
                               const SizedBox(height: 6),
-                              Row(
+                              Wrap(
+                                spacing: 6,
+                                runSpacing: 5,
+                                crossAxisAlignment: WrapCrossAlignment.center,
                                 children: [
                                   Tag(
                                     label:
@@ -194,15 +197,13 @@ class _ProgressScreenState extends ConsumerState<ProgressScreen> {
                                     color: p.muted,
                                     compact: true,
                                   ),
-                                  if (target != null) ...[
-                                    const SizedBox(width: 6),
+                                  if (target != null)
                                     Tag(
                                       label:
                                           'TARGET ${Fmt.weightValue(target, units)} ${Fmt.weightLabel(units)}',
                                       color: p.accent,
                                       compact: true,
                                     ),
-                                  ],
                                 ],
                               ),
                             ],
@@ -250,11 +251,13 @@ class _ProgressScreenState extends ConsumerState<ProgressScreen> {
                             color: p.faint,
                           ),
                           const SizedBox(width: 7),
-                          Text(
-                            targetDiff.abs() < 0.1
-                                ? 'Target weight reached. Now decide what the next standard is.'
-                                : '${Fmt.weightValue(targetDiff.abs(), units)} ${Fmt.weightLabel(units)} to target. Keep the weekly rate sane.',
-                            style: TextStyle(color: p.faint, fontSize: 9.5),
+                          Expanded(
+                            child: Text(
+                              targetDiff.abs() < 0.1
+                                  ? 'Target weight reached. Now decide what the next standard is.'
+                                  : '${Fmt.weightValue(targetDiff.abs(), units)} ${Fmt.weightLabel(units)} to target. Keep the weekly rate sane.',
+                              style: TextStyle(color: p.faint, fontSize: 9.5),
+                            ),
                           ),
                         ],
                       ),
@@ -807,27 +810,32 @@ class _SummaryMetric extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 3),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                value,
-                style: TextStyle(
-                  color: p.text,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w800,
-                  height: 1,
-                ),
-              ),
-              if (value != '—')
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 1, left: 1),
-                  child: Text(
-                    unit,
-                    style: TextStyle(color: p.faint, fontSize: 7.5),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            alignment: Alignment.centerLeft,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  value,
+                  style: TextStyle(
+                    color: p.text,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w800,
+                    height: 1,
                   ),
                 ),
-            ],
+                if (value != '—')
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 1, left: 1),
+                    child: Text(
+                      unit,
+                      style: TextStyle(color: p.faint, fontSize: 7.5),
+                    ),
+                  ),
+              ],
+            ),
           ),
         ],
       ),

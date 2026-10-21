@@ -81,7 +81,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     String? error;
     if (page == 1) {
       if (_name.text.trim().isEmpty) {
-        error = 'Give us a name to put on the leaderboard.';
+        error = 'Give us a name to personalise Thetics.';
       }
       final age = int.tryParse(_age.text.trim());
       if (error == null && (age == null || age < 14 || age > 90)) {

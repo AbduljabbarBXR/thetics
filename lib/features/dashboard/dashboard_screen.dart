@@ -539,18 +539,24 @@ class _HeroWorkoutCard extends StatelessWidget {
                     Expanded(
                       child: FilledButton(
                         onPressed: onStart,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              isActive
-                                  ? Icons.play_arrow_rounded
-                                  : Icons.bolt_rounded,
-                              size: 19,
-                            ),
-                            const SizedBox(width: 7),
-                            Text(isActive ? 'RESUME SESSION' : 'START SESSION'),
-                          ],
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                isActive
+                                    ? Icons.play_arrow_rounded
+                                    : Icons.bolt_rounded,
+                                size: 19,
+                              ),
+                              const SizedBox(width: 7),
+                              Text(
+                                isActive ? 'RESUME SESSION' : 'START SESSION',
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

@@ -360,23 +360,28 @@ class _FeaturedProgram extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 14),
-                Row(
-                  children: [
-                    _MetaItem(
-                      icon: Icons.calendar_today_outlined,
-                      label: '${program.daysPerWeek} days/wk',
-                    ),
-                    const SizedBox(width: 14),
-                    _MetaItem(
-                      icon: Icons.hourglass_bottom_rounded,
-                      label: '${program.weeks} weeks',
-                    ),
-                    const SizedBox(width: 14),
-                    _MetaItem(
-                      icon: Icons.signal_cellular_alt_rounded,
-                      label: program.level.split('–').first,
-                    ),
-                  ],
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  alignment: Alignment.centerLeft,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      _MetaItem(
+                        icon: Icons.calendar_today_outlined,
+                        label: '${program.daysPerWeek} days/wk',
+                      ),
+                      const SizedBox(width: 14),
+                      _MetaItem(
+                        icon: Icons.hourglass_bottom_rounded,
+                        label: '${program.weeks} weeks',
+                      ),
+                      const SizedBox(width: 14),
+                      _MetaItem(
+                        icon: Icons.signal_cellular_alt_rounded,
+                        label: program.level.split('–').first,
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 16),
                 SizedBox(
@@ -528,12 +533,16 @@ class _ProgramRow extends StatelessWidget {
                     const SizedBox(width: 8),
                     Container(width: 3, height: 3, color: p.faint),
                     const SizedBox(width: 8),
-                    Text(
-                      program.level,
-                      style: TextStyle(
-                        color: p.muted,
-                        fontSize: 9,
-                        fontWeight: FontWeight.w700,
+                    Flexible(
+                      child: Text(
+                        program.level,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: p.muted,
+                          fontSize: 9,
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                     ),
                   ],
@@ -559,7 +568,7 @@ class _LibraryCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 104,
+        height: 112,
         clipBehavior: Clip.antiAlias,
         decoration: BoxDecoration(
           color: p.card,
@@ -570,7 +579,7 @@ class _LibraryCard extends StatelessWidget {
           children: [
             SizedBox(
               width: 106,
-              height: 104,
+              height: 112,
               child: Stack(
                 fit: StackFit.expand,
                 children: [
