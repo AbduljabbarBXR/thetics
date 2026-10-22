@@ -198,7 +198,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   Widget build(BuildContext context) {
     final p = context.palette;
     final pages = <Widget>[
-      _IntroPage(onStart: _next),
+      _IntroPage(),
       _BasicsPage(
         name: _name,
         age: _age,
@@ -252,8 +252,13 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                       else
                         const AppMark(size: 38),
                       const SizedBox(width: 10),
-                      const Wordmark(fontSize: 22),
-                      const Spacer(),
+                      const Expanded(
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          alignment: Alignment.centerLeft,
+                          child: Wordmark(fontSize: 22),
+                        ),
+                      ),
                       if (_page > 0)
                         Text(
                           '${(_page).toString().padLeft(2, '0')} / ${(_pageCount).toString().padLeft(2, '0')}',
@@ -267,9 +272,11 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                     ],
                   ),
                 ),
-                if (_page > 0)
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 8, 20, 6),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 8, 20, 6),
+                  child: AnimatedOpacity(
+                    opacity: _page > 0 ? 1 : 0,
+                    duration: const Duration(milliseconds: 200),
                     child: Row(
                       children: List.generate(_pageCount, (index) {
                         final active = index + 1 <= _page;
@@ -289,6 +296,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                       }),
                     ),
                   ),
+                ),
                 Expanded(
                   child: PageView(
                     controller: _pageController,
@@ -296,13 +304,17 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                     children: pages,
                   ),
                 ),
-                if (_page > 0)
-                  _BottomBar(
-                    error: _error,
-                    isLast: _page == _pageCount,
-                    saving: _saving,
-                    onPressed: _page == _pageCount ? _finish : _next,
-                  ),
+                _BottomBar(
+                  error: _error,
+                  label: _page == 0
+                      ? 'BUILD MY BLUEPRINT'
+                      : _page == _pageCount
+                          ? 'ENTER THETICS'
+                          : 'CONTINUE',
+                  isLast: _page == _pageCount,
+                  saving: _saving,
+                  onPressed: _page == _pageCount ? _finish : _next,
+                ),
               ],
             ),
           ),
@@ -339,9 +351,7 @@ class _OnboardingBackdrop extends StatelessWidget {
 }
 
 class _IntroPage extends StatelessWidget {
-  const _IntroPage({required this.onStart});
-
-  final VoidCallback onStart;
+  const _IntroPage();
 
   @override
   Widget build(BuildContext context) {
@@ -388,24 +398,6 @@ class _IntroPage extends StatelessWidget {
                 _IntroStat(value: '∞', label: 'POTENTIAL'),
               ],
             ),
-          ),
-          const SizedBox(height: 28),
-          Row(
-            children: [
-              Expanded(
-                child: FilledButton(
-                  onPressed: onStart,
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('BUILD MY BLUEPRINT'),
-                      SizedBox(width: 8),
-                      Icon(Icons.arrow_forward_rounded, size: 18),
-                    ],
-                  ),
-                ),
-              ),
-            ],
           ),
           const SizedBox(height: 18),
           Row(
@@ -572,11 +564,15 @@ class _BasicsPage extends StatelessWidget {
                             size: 22,
                           ),
                           const SizedBox(width: 10),
-                          Text(
-                            value.label,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w800,
-                              color: selected ? p.onAccent : p.text,
+                          Flexible(
+                            child: Text(
+                              value.label,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w800,
+                                color: selected ? p.onAccent : p.text,
+                              ),
                             ),
                           ),
                         ],
@@ -1026,24 +1022,13 @@ class _MissionPage extends StatelessWidget {
                 .map(
                   (value) => DropdownMenuItem(
                     value: value,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 6),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            value.label,
-                            style: const TextStyle(
-                              fontSize: 13,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                          Text(
-                            value.description,
-                            style: TextStyle(fontSize: 10, color: p.faint),
-                          ),
-                        ],
+                    child: Text(
+                      value.label,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                   ),
@@ -1052,6 +1037,11 @@ class _MissionPage extends StatelessWidget {
             onChanged: (value) {
               if (value != null) onActivity(value);
             },
+          ),
+          const SizedBox(height: 8),
+          Text(
+            activity.description,
+            style: TextStyle(color: p.faint, fontSize: 11, height: 1.4),
           ),
         ],
       ),
@@ -1098,8 +1088,10 @@ class _BlueprintPage extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const Eyebrow('DAILY CALORIE TARGET'),
-                    const Spacer(),
+                    const Expanded(
+                      child: Eyebrow('DAILY CALORIE TARGET'),
+                    ),
+                    const SizedBox(width: 12),
                     Tag(label: goal.shortLabel, color: p.accent),
                   ],
                 ),
@@ -1107,25 +1099,41 @@ class _BlueprintPage extends StatelessWidget {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text(
-                      '${targets.calories}',
-                      style: Theme.of(context)
-                          .textTheme
-                          .displayMedium
-                          ?.copyWith(fontSize: 58, color: p.accent),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8, left: 6),
-                      child: Text(
-                        'kcal',
-                        style: TextStyle(
-                          color: p.muted,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w700,
+                    Expanded(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        alignment: Alignment.centerLeft,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              '${targets.calories}',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displayMedium
+                                  ?.copyWith(
+                                    fontSize: 58,
+                                    color: p.accent,
+                                  ),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(bottom: 8, left: 6),
+                              child: Text(
+                                'kcal',
+                                style: TextStyle(
+                                  color: p.muted,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
-                    const Spacer(),
+                    const SizedBox(width: 10),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
@@ -1322,12 +1330,14 @@ class _MacroNumber extends StatelessWidget {
 class _BottomBar extends StatelessWidget {
   const _BottomBar({
     required this.error,
+    required this.label,
     required this.isLast,
     required this.saving,
     required this.onPressed,
   });
 
   final String? error;
+  final String label;
   final bool isLast;
   final bool saving;
   final VoidCallback onPressed;
@@ -1374,7 +1384,13 @@ class _BottomBar extends StatelessWidget {
                     : Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(isLast ? 'ENTER THETICS' : 'CONTINUE'),
+                          Flexible(
+                            child: Text(
+                              label,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
                           const SizedBox(width: 8),
                           Icon(
                             isLast

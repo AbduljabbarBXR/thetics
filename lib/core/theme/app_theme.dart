@@ -88,6 +88,7 @@ class AppTheme {
         color: p.text,
       ),
       'titleLarge': TextStyle(
+        fontFamily: 'Manrope',
         fontWeight: FontWeight.w700,
         fontSize: 19,
         height: 1.25,
@@ -95,12 +96,14 @@ class AppTheme {
         color: p.text,
       ),
       'titleMedium': TextStyle(
+        fontFamily: 'Manrope',
         fontWeight: FontWeight.w700,
         fontSize: 15.5,
         height: 1.3,
         color: p.text,
       ),
       'titleSmall': TextStyle(
+        fontFamily: 'Manrope',
         fontWeight: FontWeight.w700,
         fontSize: 13,
         height: 1.3,
@@ -108,36 +111,42 @@ class AppTheme {
         color: p.text,
       ),
       'bodyLarge': TextStyle(
+        fontFamily: 'Manrope',
         fontWeight: FontWeight.w500,
         fontSize: 16,
         height: 1.45,
         color: p.text,
       ),
       'bodyMedium': TextStyle(
+        fontFamily: 'Manrope',
         fontWeight: FontWeight.w500,
         fontSize: 14,
         height: 1.45,
         color: p.text,
       ),
       'bodySmall': TextStyle(
+        fontFamily: 'Manrope',
         fontWeight: FontWeight.w500,
         fontSize: 12,
         height: 1.4,
         color: p.muted,
       ),
       'labelLarge': TextStyle(
+        fontFamily: 'Manrope',
         fontWeight: FontWeight.w700,
         fontSize: 13,
         letterSpacing: 0.4,
         color: p.text,
       ),
       'labelMedium': TextStyle(
+        fontFamily: 'Manrope',
         fontWeight: FontWeight.w600,
         fontSize: 11.5,
         letterSpacing: 0.25,
         color: p.muted,
       ),
       'labelSmall': TextStyle(
+        fontFamily: 'Manrope',
         fontWeight: FontWeight.w700,
         fontSize: 10,
         letterSpacing: 1.1,
@@ -204,12 +213,20 @@ class AppTheme {
         filled: true,
         fillColor: p.isDark ? p.cardHigh.withValues(alpha: 0.7) : p.cardHigh,
         hintStyle: TextStyle(
+          fontFamily: 'Manrope',
           color: p.faint,
           fontWeight: FontWeight.w500,
           fontSize: 14.5,
         ),
-        labelStyle: TextStyle(color: p.muted, fontWeight: FontWeight.w600),
-        floatingLabelStyle: TextStyle(color: p.accent),
+        labelStyle: TextStyle(
+          fontFamily: 'Manrope',
+          color: p.muted,
+          fontWeight: FontWeight.w600,
+        ),
+        floatingLabelStyle: TextStyle(
+          fontFamily: 'Manrope',
+          color: p.accent,
+        ),
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 16,
           vertical: 16,
@@ -230,7 +247,11 @@ class AppTheme {
           borderRadius: BorderRadius.circular(16),
           borderSide: BorderSide(color: p.danger),
         ),
-        errorStyle: TextStyle(color: p.danger, fontSize: 11.5),
+        errorStyle: TextStyle(
+          fontFamily: 'Manrope',
+          color: p.danger,
+          fontSize: 11.5,
+        ),
       ),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
@@ -242,6 +263,7 @@ class AppTheme {
             borderRadius: BorderRadius.circular(16),
           ),
           textStyle: const TextStyle(
+            fontFamily: 'Manrope',
             fontWeight: FontWeight.w800,
             fontSize: 14,
             letterSpacing: 0.2,
@@ -257,6 +279,7 @@ class AppTheme {
             borderRadius: BorderRadius.circular(16),
           ),
           textStyle: const TextStyle(
+            fontFamily: 'Manrope',
             fontWeight: FontWeight.w700,
             fontSize: 13.5,
           ),
@@ -265,7 +288,11 @@ class AppTheme {
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           foregroundColor: p.text,
-          textStyle: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13),
+          textStyle: const TextStyle(
+            fontFamily: 'Manrope',
+            fontWeight: FontWeight.w700,
+            fontSize: 13,
+          ),
         ),
       ),
       chipTheme: ChipThemeData(
@@ -276,11 +303,13 @@ class AppTheme {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
         labelStyle: TextStyle(
+          fontFamily: 'Manrope',
           color: p.text,
           fontWeight: FontWeight.w600,
           fontSize: 12,
         ),
         secondaryLabelStyle: TextStyle(
+          fontFamily: 'Manrope',
           color: p.onAccent,
           fontWeight: FontWeight.w800,
           fontSize: 12,
@@ -292,6 +321,7 @@ class AppTheme {
       snackBarTheme: SnackBarThemeData(
         backgroundColor: p.isDark ? p.text : p.text,
         contentTextStyle: TextStyle(
+          fontFamily: 'Manrope',
           color: p.isDark ? p.bg : p.surface,
           fontWeight: FontWeight.w600,
           fontSize: 13,
@@ -337,8 +367,13 @@ class AppTheme {
         indicatorColor: p.accent,
         indicatorSize: TabBarIndicatorSize.label,
         dividerColor: Colors.transparent,
-        labelStyle: const TextStyle(fontWeight: FontWeight.w800, fontSize: 13),
+        labelStyle: const TextStyle(
+          fontFamily: 'Manrope',
+          fontWeight: FontWeight.w800,
+          fontSize: 13,
+        ),
         unselectedLabelStyle: const TextStyle(
+          fontFamily: 'Manrope',
           fontWeight: FontWeight.w600,
           fontSize: 13,
         ),
@@ -346,8 +381,8 @@ class AppTheme {
       datePickerTheme: DatePickerThemeData(
         backgroundColor: p.surface,
         surfaceTintColor: Colors.transparent,
-        weekdayStyle: TextStyle(color: p.muted),
-        dayStyle: TextStyle(color: p.text),
+        weekdayStyle: TextStyle(fontFamily: 'Manrope', color: p.muted),
+        dayStyle: TextStyle(fontFamily: 'Manrope', color: p.text),
         headerBackgroundColor: p.card,
         headerForegroundColor: p.text,
       ),
@@ -358,6 +393,7 @@ class AppTheme {
         overlayColor: p.accent.withValues(alpha: 0.14),
         valueIndicatorColor: p.accent,
         valueIndicatorTextStyle: TextStyle(
+          fontFamily: 'Manrope',
           color: p.onAccent,
           fontWeight: FontWeight.w800,
         ),
