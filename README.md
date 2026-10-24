@@ -21,7 +21,8 @@ No account. No cloud. No ads. No fake "natural" marketing.
   - **Foundation 5×5** — linear strength progression.
   - **Upper / Lower Recomp** — balanced four-day hypertrophy and recomposition.
   - **PPL Aesthetics** — six-day push/pull/legs with an aesthetic bias.
-- 69-exercise library with images, muscles, equipment, cues and instructions.
+- 69-exercise library with photos, animated two-frame form loops, muscles,
+  equipment, cues and instructions.
 - Program browser with day-by-day prescriptions, rest targets and notes.
 - Live workout logger:
   - Pre-filled sets and target reps.
@@ -52,7 +53,10 @@ No account. No cloud. No ads. No fake "natural" marketing.
 
 ### Foundations
 - Flutter + Riverpod `AsyncNotifier` state.
-- JSON persistence via `shared_preferences`.
+- SQLite persistence on Android/iOS (JSON document in `thetics.db`), with
+  automatic one-time migration from the 1.0.x `shared_preferences` store.
+- `shared_preferences` remains the web/fallback store; a session-only memory
+  store is used only if platform storage is unavailable.
 - Dark carbon/volt-lime design system with Barlow Condensed + Manrope.
 - Android, iOS and web targets.
 - No backend, account system or telemetry.
@@ -141,7 +145,7 @@ lib/
   core/
     models/                    Persisted AppData and settings
     state/                     Riverpod controller and providers
-    storage/                   shared_preferences adapter
+    storage/                   SQLite store, migration and fallbacks
     theme/                     Palette and typography
     utils/                     BMI, macros, dates, formatting
     widgets/                   Buttons, cards, charts, sheets, logo
@@ -155,7 +159,8 @@ lib/
     progress/                  Weight, measurements, BMI, photos
     profile/                   Profile, targets, settings, backup, about
 assets/
-  exercises/                   69 bundled exercise images
+  exercises/                   69 bundled exercise photos
+    gifs/                      69 generated two-frame form loops
   fonts/                       Barlow Condensed, Manrope (OFL)
   images/                      Brand logo and wordmark
 test/                          BMI, macro, catalog, data and boot tests
@@ -165,9 +170,13 @@ test/                          BMI, macro, catalog, data and boot tests
 
 ## Privacy and backup
 
-Everything is stored on the device. The app has no analytics, account or server.
-Progress photos are copied into the app's private documents directory and are
-never uploaded.
+Everything is stored on the device. On Android and iOS the primary store is
+SQLite (`thetics.db`); the first 1.0.2 launch imports the old
+`shared_preferences` payload once so an upgrade keeps existing data. The web
+build (and desktop targets without a SQLite plugin) uses browser/local
+preferences, with an in-memory fallback if storage is blocked.
+The app has no analytics, account or server. Progress photos are copied into
+the app's private documents directory and are never uploaded.
 
 The current backup flow copies a complete JSON snapshot to the clipboard from
 **Profile → Data & privacy → Copy backup JSON**. Paste it into a private note or
@@ -202,9 +211,10 @@ health, that matters more than the number.
 
 ## Credits
 
-- Exercise images and reference descriptions:
+- Exercise photographs, generated form loops and reference descriptions:
   [free-exercise-db](https://github.com/yuhonas/free-exercise-db) by yuhonas,
-  released under **The Unlicense**.
+  released under **The Unlicense**. The form loops are two-frame derivatives,
+  not continuous video.
 - **Barlow Condensed** — SIL Open Font License 1.1.
 - **Manrope** — SIL Open Font License 1.1.
 

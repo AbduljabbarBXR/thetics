@@ -77,5 +77,25 @@ void main() {
         );
       }
     });
+
+    test('every bundled form loop exists and is an animated GIF', () {
+      for (final exercise in exerciseSeed) {
+        final animation = exercise.animationAsset;
+        expect(animation, isNotNull, reason: exercise.id);
+        final file = File(animation!);
+        expect(file.existsSync(), isTrue, reason: 'Missing $animation');
+        final handle = file.openSync();
+        try {
+          final signature = String.fromCharCodes(handle.readSync(6));
+          expect(
+            signature,
+            anyOf('GIF87a', 'GIF89a'),
+            reason: 'Not a GIF: $animation',
+          );
+        } finally {
+          handle.closeSync();
+        }
+      }
+    });
   });
 }

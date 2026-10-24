@@ -283,6 +283,15 @@ class _ExerciseTile extends StatelessWidget {
                               ? p.ember
                               : p.sky,
                     ),
+                    if (exercise.hasAnimation) ...[
+                      const SizedBox(width: 5),
+                      Tag(
+                        label: 'GIF',
+                        icon: Icons.gif_box_rounded,
+                        compact: true,
+                        color: p.accent,
+                      ),
+                    ],
                     const SizedBox(width: 5),
                     Flexible(
                       child: Text(

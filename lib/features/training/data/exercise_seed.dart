@@ -2,7 +2,8 @@
 import '../models/exercise.dart';
 
 /// Curated exercise library generated from the public-domain free-exercise-db.
-/// Images live in `assets/exercises/` and are Unlicense. See NOTICE.md.
+/// Photos live in `assets/exercises/` and generated form loops in
+/// `assets/exercises/gifs/`; both are Unlicense. See NOTICE.md.
 const exerciseSeed = <Exercise>[
   Exercise(
     id: "barbell_bench_press_medium_grip",
@@ -24,6 +25,7 @@ const exerciseSeed = <Exercise>[
       "When you are done, place the bar back in the rack.",
     ],
     imageAsset: "assets/exercises/barbell_bench_press_medium_grip.jpg",
+    animationAsset: "assets/exercises/gifs/barbell_bench_press_medium_grip.gif",
   ),
   Exercise(
     id: "barbell_incline_bench_press_medium_grip",
@@ -45,6 +47,8 @@ const exerciseSeed = <Exercise>[
       "When you are done, place the bar back in the rack.",
     ],
     imageAsset: "assets/exercises/barbell_incline_bench_press_medium_grip.jpg",
+    animationAsset:
+        "assets/exercises/gifs/barbell_incline_bench_press_medium_grip.gif",
   ),
   Exercise(
     id: "decline_barbell_bench_press",
@@ -67,6 +71,7 @@ const exerciseSeed = <Exercise>[
       "When you are done, place the bar back in the rack.",
     ],
     imageAsset: "assets/exercises/decline_barbell_bench_press.jpg",
+    animationAsset: "assets/exercises/gifs/decline_barbell_bench_press.gif",
   ),
   Exercise(
     id: "dumbbell_bench_press",
@@ -88,6 +93,7 @@ const exerciseSeed = <Exercise>[
       "Repeat the movement for the prescribed amount of repetitions of your training program.",
     ],
     imageAsset: "assets/exercises/dumbbell_bench_press.jpg",
+    animationAsset: "assets/exercises/gifs/dumbbell_bench_press.gif",
   ),
   Exercise(
     id: "incline_dumbbell_press",
@@ -110,6 +116,7 @@ const exerciseSeed = <Exercise>[
       "When you are done, place the dumbbells back on your thighs and then on the floor. This is the safest manner to release the dumbbells.",
     ],
     imageAsset: "assets/exercises/incline_dumbbell_press.jpg",
+    animationAsset: "assets/exercises/gifs/incline_dumbbell_press.gif",
   ),
   Exercise(
     id: "machine_bench_press",
@@ -132,6 +139,7 @@ const exerciseSeed = <Exercise>[
       "When finished step on the lever again and slowly get the handles back to their original place.",
     ],
     imageAsset: "assets/exercises/machine_bench_press.jpg",
+    animationAsset: "assets/exercises/gifs/machine_bench_press.gif",
   ),
   Exercise(
     id: "dips_chest_version",
@@ -151,6 +159,7 @@ const exerciseSeed = <Exercise>[
       "Repeat the movement for the prescribed amount of repetitions.",
     ],
     imageAsset: "assets/exercises/dips_chest_version.jpg",
+    animationAsset: "assets/exercises/gifs/dips_chest_version.gif",
   ),
   Exercise(
     id: "pushups",
@@ -170,6 +179,7 @@ const exerciseSeed = <Exercise>[
       "After a brief pause at the top contracted position, you can begin to lower yourself downward again for as many repetitions as needed.",
     ],
     imageAsset: "assets/exercises/pushups.jpg",
+    animationAsset: "assets/exercises/gifs/pushups.gif",
   ),
   Exercise(
     id: "cable_crossover",
@@ -191,6 +201,7 @@ const exerciseSeed = <Exercise>[
       "Hold for a second at the starting position and repeat the movement for the prescribed amount of repetitions.",
     ],
     imageAsset: "assets/exercises/cable_crossover.jpg",
+    animationAsset: "assets/exercises/gifs/cable_crossover.gif",
   ),
   Exercise(
     id: "butterfly",
@@ -211,6 +222,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/butterfly.jpg",
+    animationAsset: "assets/exercises/gifs/butterfly.gif",
   ),
   Exercise(
     id: "dumbbell_flyes",
@@ -231,6 +243,7 @@ const exerciseSeed = <Exercise>[
       "Hold for a second at the contracted position and repeat the movement for the prescribed amount of repetitions.",
     ],
     imageAsset: "assets/exercises/dumbbell_flyes.jpg",
+    animationAsset: "assets/exercises/gifs/dumbbell_flyes.gif",
   ),
   Exercise(
     id: "incline_dumbbell_flyes",
@@ -252,6 +265,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/incline_dumbbell_flyes.jpg",
+    animationAsset: "assets/exercises/gifs/incline_dumbbell_flyes.gif",
   ),
   Exercise(
     id: "pullups",
@@ -273,6 +287,7 @@ const exerciseSeed = <Exercise>[
       "Repeat this motion for the prescribed amount of repetitions.",
     ],
     imageAsset: "assets/exercises/pullups.jpg",
+    animationAsset: "assets/exercises/gifs/pullups.gif",
   ),
   Exercise(
     id: "chin_up",
@@ -293,6 +308,7 @@ const exerciseSeed = <Exercise>[
       "Repeat this motion for the prescribed amount of repetitions.",
     ],
     imageAsset: "assets/exercises/chin_up.jpg",
+    animationAsset: "assets/exercises/gifs/chin_up.gif",
   ),
   Exercise(
     id: "wide_grip_lat_pulldown",
@@ -314,6 +330,7 @@ const exerciseSeed = <Exercise>[
       "Repeat this motion for the prescribed amount of repetitions.",
     ],
     imageAsset: "assets/exercises/wide_grip_lat_pulldown.jpg",
+    animationAsset: "assets/exercises/gifs/wide_grip_lat_pulldown.gif",
   ),
   Exercise(
     id: "bent_over_barbell_row",
@@ -333,6 +350,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/bent_over_barbell_row.jpg",
+    animationAsset: "assets/exercises/gifs/bent_over_barbell_row.gif",
   ),
   Exercise(
     id: "one_arm_dumbbell_row",
@@ -355,6 +373,7 @@ const exerciseSeed = <Exercise>[
       "Switch sides and repeat again with the other arm.",
     ],
     imageAsset: "assets/exercises/one_arm_dumbbell_row.jpg",
+    animationAsset: "assets/exercises/gifs/one_arm_dumbbell_row.gif",
   ),
   Exercise(
     id: "seated_cable_rows",
@@ -376,6 +395,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/seated_cable_rows.jpg",
+    animationAsset: "assets/exercises/gifs/seated_cable_rows.gif",
   ),
   Exercise(
     id: "t_bar_row_with_handle",
@@ -396,6 +416,7 @@ const exerciseSeed = <Exercise>[
       "After a brief pause, return to the starting position.",
     ],
     imageAsset: "assets/exercises/t_bar_row_with_handle.jpg",
+    animationAsset: "assets/exercises/gifs/t_bar_row_with_handle.gif",
   ),
   Exercise(
     id: "straight_arm_pulldown",
@@ -416,6 +437,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/straight_arm_pulldown.jpg",
+    animationAsset: "assets/exercises/gifs/straight_arm_pulldown.gif",
   ),
   Exercise(
     id: "face_pull",
@@ -432,6 +454,7 @@ const exerciseSeed = <Exercise>[
       "Facing a high pulley with a rope or dual handles attached, pull the weight directly towards your face, separating your hands as you do so. Keep your upper arms parallel to the ground.",
     ],
     imageAsset: "assets/exercises/face_pull.jpg",
+    animationAsset: "assets/exercises/gifs/face_pull.gif",
   ),
   Exercise(
     id: "barbell_shrug",
@@ -451,6 +474,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/barbell_shrug.jpg",
+    animationAsset: "assets/exercises/gifs/barbell_shrug.gif",
   ),
   Exercise(
     id: "hyperextensions_back_extensions",
@@ -472,6 +496,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/hyperextensions_back_extensions.jpg",
+    animationAsset: "assets/exercises/gifs/hyperextensions_back_extensions.gif",
   ),
   Exercise(
     id: "bent_arm_dumbbell_pullover",
@@ -493,6 +518,7 @@ const exerciseSeed = <Exercise>[
       "Hold the weight on the initial position for a second and repeat the motion for the prescribed number of repetitions.",
     ],
     imageAsset: "assets/exercises/bent_arm_dumbbell_pullover.jpg",
+    animationAsset: "assets/exercises/gifs/bent_arm_dumbbell_pullover.gif",
   ),
   Exercise(
     id: "rack_pulls",
@@ -511,6 +537,7 @@ const exerciseSeed = <Exercise>[
       "Return the weight to the pins and repeat.",
     ],
     imageAsset: "assets/exercises/rack_pulls.jpg",
+    animationAsset: "assets/exercises/gifs/rack_pulls.gif",
   ),
   Exercise(
     id: "standing_military_press",
@@ -532,6 +559,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/standing_military_press.jpg",
+    animationAsset: "assets/exercises/gifs/standing_military_press.gif",
   ),
   Exercise(
     id: "dumbbell_shoulder_press",
@@ -553,6 +581,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/dumbbell_shoulder_press.jpg",
+    animationAsset: "assets/exercises/gifs/dumbbell_shoulder_press.gif",
   ),
   Exercise(
     id: "side_lateral_raise",
@@ -572,6 +601,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/side_lateral_raise.jpg",
+    animationAsset: "assets/exercises/gifs/side_lateral_raise.gif",
   ),
   Exercise(
     id: "seated_bent_over_rear_delt_raise",
@@ -594,6 +624,8 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/seated_bent_over_rear_delt_raise.jpg",
+    animationAsset:
+        "assets/exercises/gifs/seated_bent_over_rear_delt_raise.gif",
   ),
   Exercise(
     id: "reverse_flyes",
@@ -615,6 +647,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/reverse_flyes.jpg",
+    animationAsset: "assets/exercises/gifs/reverse_flyes.gif",
   ),
   Exercise(
     id: "front_dumbbell_raise",
@@ -634,6 +667,7 @@ const exerciseSeed = <Exercise>[
       "Continue alternating in this fashion until all of the recommended amount of repetitions have been performed for each arm.",
     ],
     imageAsset: "assets/exercises/front_dumbbell_raise.jpg",
+    animationAsset: "assets/exercises/gifs/front_dumbbell_raise.gif",
   ),
   Exercise(
     id: "upright_barbell_row",
@@ -653,6 +687,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/upright_barbell_row.jpg",
+    animationAsset: "assets/exercises/gifs/upright_barbell_row.gif",
   ),
   Exercise(
     id: "cable_rear_delt_fly",
@@ -672,6 +707,7 @@ const exerciseSeed = <Exercise>[
       "Pause at the end of the motion before returning the handles to the start position.",
     ],
     imageAsset: "assets/exercises/cable_rear_delt_fly.jpg",
+    animationAsset: "assets/exercises/gifs/cable_rear_delt_fly.gif",
   ),
   Exercise(
     id: "barbell_curl",
@@ -692,6 +728,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/barbell_curl.jpg",
+    animationAsset: "assets/exercises/gifs/barbell_curl.gif",
   ),
   Exercise(
     id: "alternate_hammer_curl",
@@ -713,6 +750,7 @@ const exerciseSeed = <Exercise>[
       "Continue alternating in this manner for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/alternate_hammer_curl.jpg",
+    animationAsset: "assets/exercises/gifs/alternate_hammer_curl.gif",
   ),
   Exercise(
     id: "incline_dumbbell_curl",
@@ -732,6 +770,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/incline_dumbbell_curl.jpg",
+    animationAsset: "assets/exercises/gifs/incline_dumbbell_curl.gif",
   ),
   Exercise(
     id: "preacher_curl",
@@ -752,6 +791,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/preacher_curl.jpg",
+    animationAsset: "assets/exercises/gifs/preacher_curl.gif",
   ),
   Exercise(
     id: "concentration_curls",
@@ -772,6 +812,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions. Then repeat the movement with the left arm.",
     ],
     imageAsset: "assets/exercises/concentration_curls.jpg",
+    animationAsset: "assets/exercises/gifs/concentration_curls.gif",
   ),
   Exercise(
     id: "close_grip_barbell_bench_press",
@@ -792,6 +833,7 @@ const exerciseSeed = <Exercise>[
       "When you are done, place the bar back in the rack.",
     ],
     imageAsset: "assets/exercises/close_grip_barbell_bench_press.jpg",
+    animationAsset: "assets/exercises/gifs/close_grip_barbell_bench_press.gif",
   ),
   Exercise(
     id: "triceps_pushdown_rope_attachment",
@@ -812,6 +854,8 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/triceps_pushdown_rope_attachment.jpg",
+    animationAsset:
+        "assets/exercises/gifs/triceps_pushdown_rope_attachment.gif",
   ),
   Exercise(
     id: "ez_bar_skullcrusher",
@@ -831,6 +875,7 @@ const exerciseSeed = <Exercise>[
       "Repeat.",
     ],
     imageAsset: "assets/exercises/ez_bar_skullcrusher.jpg",
+    animationAsset: "assets/exercises/gifs/ez_bar_skullcrusher.gif",
   ),
   Exercise(
     id: "dips_triceps_version",
@@ -851,6 +896,7 @@ const exerciseSeed = <Exercise>[
       "Repeat the movement for the prescribed amount of repetitions.",
     ],
     imageAsset: "assets/exercises/dips_triceps_version.jpg",
+    animationAsset: "assets/exercises/gifs/dips_triceps_version.gif",
   ),
   Exercise(
     id: "cable_rope_overhead_triceps_extension",
@@ -871,6 +917,8 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/cable_rope_overhead_triceps_extension.jpg",
+    animationAsset:
+        "assets/exercises/gifs/cable_rope_overhead_triceps_extension.gif",
   ),
   Exercise(
     id: "standing_dumbbell_triceps_extension",
@@ -891,6 +939,8 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/standing_dumbbell_triceps_extension.jpg",
+    animationAsset:
+        "assets/exercises/gifs/standing_dumbbell_triceps_extension.gif",
   ),
   Exercise(
     id: "bench_dips",
@@ -911,6 +961,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/bench_dips.jpg",
+    animationAsset: "assets/exercises/gifs/bench_dips.gif",
   ),
   Exercise(
     id: "barbell_squat",
@@ -933,6 +984,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/barbell_squat.jpg",
+    animationAsset: "assets/exercises/gifs/barbell_squat.gif",
   ),
   Exercise(
     id: "front_barbell_squat",
@@ -954,6 +1006,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/front_barbell_squat.jpg",
+    animationAsset: "assets/exercises/gifs/front_barbell_squat.gif",
   ),
   Exercise(
     id: "leg_press",
@@ -974,6 +1027,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions and ensure to lock the safety pins properly once you are done. You do not want that platform falling on you fully loaded.",
     ],
     imageAsset: "assets/exercises/leg_press.jpg",
+    animationAsset: "assets/exercises/gifs/leg_press.gif",
   ),
   Exercise(
     id: "hack_squat",
@@ -996,6 +1050,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/hack_squat.jpg",
+    animationAsset: "assets/exercises/gifs/hack_squat.gif",
   ),
   Exercise(
     id: "romanian_deadlift",
@@ -1017,6 +1072,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/romanian_deadlift.jpg",
+    animationAsset: "assets/exercises/gifs/romanian_deadlift.gif",
   ),
   Exercise(
     id: "barbell_deadlift",
@@ -1046,6 +1102,7 @@ const exerciseSeed = <Exercise>[
       "Perform the amount of repetitions prescribed in the program.",
     ],
     imageAsset: "assets/exercises/barbell_deadlift.jpg",
+    animationAsset: "assets/exercises/gifs/barbell_deadlift.gif",
   ),
   Exercise(
     id: "barbell_lunge",
@@ -1067,6 +1124,7 @@ const exerciseSeed = <Exercise>[
       "Repeat the movement for the recommended amount of repetitions and then perform with the left leg.",
     ],
     imageAsset: "assets/exercises/barbell_lunge.jpg",
+    animationAsset: "assets/exercises/gifs/barbell_lunge.gif",
   ),
   Exercise(
     id: "dumbbell_lunges",
@@ -1086,6 +1144,7 @@ const exerciseSeed = <Exercise>[
       "Repeat the movement for the recommended amount of repetitions and then perform with the left leg.",
     ],
     imageAsset: "assets/exercises/dumbbell_lunges.jpg",
+    animationAsset: "assets/exercises/gifs/dumbbell_lunges.gif",
   ),
   Exercise(
     id: "split_squat_with_dumbbells",
@@ -1105,6 +1164,7 @@ const exerciseSeed = <Exercise>[
       "At the bottom of the movement, drive through the heel to extend the knee and hip to return to the starting position.",
     ],
     imageAsset: "assets/exercises/split_squat_with_dumbbells.jpg",
+    animationAsset: "assets/exercises/gifs/split_squat_with_dumbbells.gif",
   ),
   Exercise(
     id: "leg_extensions",
@@ -1124,6 +1184,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of times.",
     ],
     imageAsset: "assets/exercises/leg_extensions.jpg",
+    animationAsset: "assets/exercises/gifs/leg_extensions.gif",
   ),
   Exercise(
     id: "lying_leg_curls",
@@ -1143,6 +1204,7 @@ const exerciseSeed = <Exercise>[
       "As you inhale, bring the legs back to the initial position. Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/lying_leg_curls.jpg",
+    animationAsset: "assets/exercises/gifs/lying_leg_curls.gif",
   ),
   Exercise(
     id: "seated_leg_curl",
@@ -1163,6 +1225,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/seated_leg_curl.jpg",
+    animationAsset: "assets/exercises/gifs/seated_leg_curl.gif",
   ),
   Exercise(
     id: "standing_calf_raises",
@@ -1183,6 +1246,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/standing_calf_raises.jpg",
+    animationAsset: "assets/exercises/gifs/standing_calf_raises.gif",
   ),
   Exercise(
     id: "seated_calf_raise",
@@ -1204,6 +1268,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/seated_calf_raise.jpg",
+    animationAsset: "assets/exercises/gifs/seated_calf_raise.gif",
   ),
   Exercise(
     id: "barbell_hip_thrust",
@@ -1223,6 +1288,7 @@ const exerciseSeed = <Exercise>[
       "Begin the movement by driving through your feet, extending your hips vertically through the bar. Your weight should be supported by your shoulder blades and your feet. Extend as far as possible, then reverse the motion to return to the starting position.",
     ],
     imageAsset: "assets/exercises/barbell_hip_thrust.jpg",
+    animationAsset: "assets/exercises/gifs/barbell_hip_thrust.gif",
   ),
   Exercise(
     id: "good_morning",
@@ -1241,6 +1307,7 @@ const exerciseSeed = <Exercise>[
       "Reverse the motion by extending through the hips with your glutes and hamstrings. Continue until you have returned to the starting position.",
     ],
     imageAsset: "assets/exercises/good_morning.jpg",
+    animationAsset: "assets/exercises/gifs/good_morning.gif",
   ),
   Exercise(
     id: "plank",
@@ -1258,6 +1325,7 @@ const exerciseSeed = <Exercise>[
       "Keep your body straight at all times, and hold this position as long as possible. To increase difficulty, an arm or leg can be raised.",
     ],
     imageAsset: "assets/exercises/plank.jpg",
+    animationAsset: "assets/exercises/gifs/plank.gif",
   ),
   Exercise(
     id: "crunches",
@@ -1280,6 +1348,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/crunches.jpg",
+    animationAsset: "assets/exercises/gifs/crunches.gif",
   ),
   Exercise(
     id: "hanging_leg_raise",
@@ -1299,6 +1368,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/hanging_leg_raise.jpg",
+    animationAsset: "assets/exercises/gifs/hanging_leg_raise.gif",
   ),
   Exercise(
     id: "cable_crunch",
@@ -1320,6 +1390,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/cable_crunch.jpg",
+    animationAsset: "assets/exercises/gifs/cable_crunch.gif",
   ),
   Exercise(
     id: "russian_twist",
@@ -1340,6 +1411,7 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/russian_twist.jpg",
+    animationAsset: "assets/exercises/gifs/russian_twist.gif",
   ),
   Exercise(
     id: "ab_roller",
@@ -1359,6 +1431,7 @@ const exerciseSeed = <Exercise>[
       "After a pause at the stretched position, start pulling yourself back to the starting position as you breathe out. Tip: Go slowly and keep your abs tight at all times.",
     ],
     imageAsset: "assets/exercises/ab_roller.jpg",
+    animationAsset: "assets/exercises/gifs/ab_roller.gif",
   ),
   Exercise(
     id: "side_bridge",
@@ -1377,6 +1450,7 @@ const exerciseSeed = <Exercise>[
       "Lower yourself with control and repeat for the prescribed time, then switch sides.",
     ],
     imageAsset: "assets/exercises/side_bridge.jpg",
+    animationAsset: "assets/exercises/gifs/side_bridge.gif",
   ),
   Exercise(
     id: "decline_crunch",
@@ -1398,5 +1472,6 @@ const exerciseSeed = <Exercise>[
       "Repeat for the recommended amount of repetitions.",
     ],
     imageAsset: "assets/exercises/decline_crunch.jpg",
+    animationAsset: "assets/exercises/gifs/decline_crunch.gif",
   ),
 ];

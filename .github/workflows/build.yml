@@ -63,7 +63,7 @@ jobs:
       - name: Build release APK
         run: |
           flutter build apk --release \
-            --build-name=1.0.1 \
+            --build-name=1.0.2 \
             --build-number=${{ github.run_number }}
 
       - name: Build web bundle

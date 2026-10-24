@@ -9,6 +9,7 @@ class Exercise {
     required this.level,
     required this.instructions,
     required this.imageAsset,
+    this.animationAsset,
     this.force,
     this.mechanic,
     this.cue,
@@ -25,7 +26,12 @@ class Exercise {
   final String? mechanic;
   final List<String> instructions;
   final String imageAsset;
+
+  /// Optional animated GIF loop bundled for this movement.
+  final String? animationAsset;
   final String? cue;
+
+  bool get hasAnimation => animationAsset != null;
 
   String get muscleSummary {
     final parts = <String>[...primaryMuscles, ...secondaryMuscles.take(2)];

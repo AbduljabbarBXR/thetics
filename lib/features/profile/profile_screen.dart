@@ -539,7 +539,7 @@ class ProfileScreen extends ConsumerWidget {
               child: Column(
                 children: [
                   Text(
-                    'THETICS 1.0.1',
+                    'THETICS 1.0.2',
                     style: TextStyle(
                       color: p.faint,
                       fontSize: 8.5,

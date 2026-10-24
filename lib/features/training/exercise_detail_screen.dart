@@ -7,6 +7,7 @@ import '../../core/utils/formatters.dart';
 import '../../core/widgets/surfaces.dart';
 import '../profile/models/user_profile.dart';
 import 'data/exercise_seed.dart';
+import 'models/exercise.dart';
 
 class ExerciseDetailScreen extends ConsumerWidget {
   const ExerciseDetailScreen({super.key, required this.exerciseId});
@@ -82,6 +83,10 @@ class ExerciseDetailScreen extends ConsumerWidget {
                             _ImageTag(exercise.group),
                             const SizedBox(width: 6),
                             _ImageTag(exercise.equipmentLabel),
+                            if (exercise.hasAnimation) ...[
+                              const SizedBox(width: 6),
+                              const _ImageTag('GIF loop'),
+                            ],
                           ],
                         ),
                         const SizedBox(height: 10),
@@ -190,6 +195,15 @@ class ExerciseDetailScreen extends ConsumerWidget {
                       ],
                     ),
                   ),
+                  const SizedBox(height: 18),
+                ],
+                if (exercise.animationAsset != null) ...[
+                  SectionHeader(
+                    title: 'Form loop',
+                    eyebrow: 'Animated reference',
+                  ),
+                  const SizedBox(height: 10),
+                  _FormLoopCard(exercise: exercise),
                   const SizedBox(height: 18),
                 ],
                 if (pr != null) ...[
@@ -321,8 +335,9 @@ class ExerciseDetailScreen extends ConsumerWidget {
                       const SizedBox(width: 8),
                       Expanded(
                         child: Text(
-                          'Demonstration image and execution notes from the '
-                          'free-exercise-db project (Unlicense).',
+                          'Demonstration imagery, animated form loops and '
+                          'execution notes from the free-exercise-db project '
+                          '(Unlicense).',
                           style: TextStyle(
                             color: p.faint,
                             fontSize: 9.5,
@@ -352,6 +367,81 @@ String _titleCase(String value) {
             : '${word[0].toUpperCase()}${word.substring(1)}',
       )
       .join(' ');
+}
+
+class _FormLoopCard extends StatelessWidget {
+  const _FormLoopCard({required this.exercise});
+
+  final Exercise exercise;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = context.palette;
+    final animation = exercise.animationAsset;
+    if (animation == null) return const SizedBox.shrink();
+
+    return SurfaceCard(
+      padding: EdgeInsets.zero,
+      radius: 20,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          ClipRRect(
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(19)),
+            child: AspectRatio(
+              aspectRatio: 3 / 2,
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Image.asset(
+                    animation,
+                    fit: BoxFit.cover,
+                    gaplessPlayback: true,
+                    filterQuality: FilterQuality.medium,
+                    semanticLabel: '${exercise.name} animated form loop',
+                    errorBuilder: (context, error, stackTrace) {
+                      return Image.asset(
+                        exercise.imageAsset,
+                        fit: BoxFit.cover,
+                        semanticLabel: exercise.name,
+                      );
+                    },
+                  ),
+                  Positioned(
+                    top: 10,
+                    left: 10,
+                    child: _ImageTag('Form loop'),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(14, 11, 14, 13),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Icon(Icons.swap_horiz_rounded, size: 16, color: p.accent),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    'Start and finish positions from two public-domain '
+                    'reference frames. Watch the transition, then own the '
+                    'lowering phase.',
+                    style: TextStyle(
+                      color: p.faint,
+                      fontSize: 9.5,
+                      height: 1.45,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class _ImageTag extends StatelessWidget {

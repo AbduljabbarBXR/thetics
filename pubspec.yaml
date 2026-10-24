@@ -1,7 +1,7 @@
 name: thetics
 description: "Thetics — natural physique training, intelligent nutrition, and honest progress tracking."
 publish_to: "none"
-version: 1.0.1+6
+version: 1.0.2+7
 
 environment:
   sdk: ">=3.5.0 <4.0.0"
@@ -15,11 +15,13 @@ dependencies:
   path: ^1.9.0
   path_provider: ^2.1.4
   shared_preferences: ^2.3.3
+  sqflite: ^2.4.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  sqflite_common_ffi: ^2.4.5
 
 flutter:
   uses-material-design: true
@@ -27,6 +29,7 @@ flutter:
   assets:
     - assets/images/
     - assets/exercises/
+    - assets/exercises/gifs/
 
   fonts:
     - family: BarlowCondensed

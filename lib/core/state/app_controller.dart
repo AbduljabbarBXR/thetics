@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../features/nutrition/models/food_item.dart';
@@ -29,7 +30,14 @@ class AppController extends AsyncNotifier<AppData> {
   @override
   Future<AppData> build() async {
     final store = ref.watch(localStoreProvider);
-    final raw = store.readRaw();
+    String? raw;
+    try {
+      raw = await store.readRaw();
+    } catch (error, stackTrace) {
+      debugPrint('Thetics: could not read saved data: $error');
+      debugPrintStack(stackTrace: stackTrace);
+      return AppData.fresh();
+    }
     if (raw == null || raw.isEmpty) return AppData.fresh();
     try {
       final decoded = jsonDecode(raw);
@@ -46,7 +54,16 @@ class AppController extends AsyncNotifier<AppData> {
     _writeQueue = _writeQueue.then((_) async {
       final current = state.valueOrNull;
       if (current == null) return;
-      await ref.read(localStoreProvider).writeRaw(jsonEncode(current.toJson()));
+      try {
+        await ref
+            .read(localStoreProvider)
+            .writeRaw(jsonEncode(current.toJson()));
+      } catch (error, stackTrace) {
+        // A broken disk/database must not poison the write queue or block the
+        // UI. State stays usable in memory for this session.
+        debugPrint('Thetics: could not persist data: $error');
+        debugPrintStack(stackTrace: stackTrace);
+      }
     });
     return _writeQueue;
   }
